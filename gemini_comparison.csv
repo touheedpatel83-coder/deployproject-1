@@ -1,0 +1,50 @@
+model,latency_seconds,input_tokens,output_tokens,total_tokens,response,error
+gemini-3.5-flash-lite,2.68,58,338,396,"Welcome, future engineers! When writing code, things don't always go as planned. Sensors fail, files go missing, and users type letters instead of numbers. 
+
+### 1. Simple Definition
+**Exception handling** is a programming safety net. Instead of letting your program crash and burn when an error occurs (called an *exception*), you write code to catch the error, handle it gracefully, and keep your program running.
+
+### 2. Practical Real-World Example
+Imagine you are writing a Python script to calculate the stress-to-load ratio for a mechanical component:
+
+```python
+try:
+    load = float(input(""Enter applied load (N): ""))
+    area = float(input(""Enter cross-sectional area (m^2): ""))
+
+    stress = load / area  # Danger: Division by zero if area = 0!
+    print(f""Calculated Stress: {stress} Pascals"")
+
+except ZeroDivisionError:
+    print(""Error: Area cannot be zero! Check your measurements."")
+except ValueError:
+    print(""Error: Please enter valid numerical values."")
+```
+Here, the `try` block tests the risky math. If the user enters `0` for the area, Python jumps straight to the `ZeroDivisionError` block instead of crashing, allowing the user to try again.
+
+### 3. Short Summary
+In engineering, we always design for failure—we use safety factors and circuit breakers. Exception handling does the same for software. Use `try` to test code and `except` to catch errors, ensuring your programs remain robust and reliable.",
+gemini-3.6-flash,,,,,,"503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+gemini-3.1-flash-lite,5.847,58,320,378,"### Exception Handling in Python
+
+#### 1. What is it?
+In programming, an **exception** is an error that occurs while your code is running (like trying to divide by zero). **Exception handling** is the process of catching these errors so your program doesn't crash. Instead of stopping abruptly, you can ""catch"" the error and decide how the program should respond.
+
+#### 2. Real-World Example: Reading a Sensor
+Imagine you are writing code for a drone that reads data from a temperature sensor. If the sensor disconnects, your program might crash. Using `try-except` blocks, you can handle this gracefully:
+
+```python
+try:
+    # Attempt to read data from the sensor
+    temperature = sensor.read_data()
+    print(f""Current temp: {temperature}"")
+except IOError:
+    # If the sensor fails, provide a safe fallback
+    print(""Sensor disconnected. Using last known temperature."")
+    temperature = 25.0
+```
+
+In this example, the `try` block contains the ""risky"" code. If an `IOError` occurs, Python jumps to the `except` block, allowing your drone to keep flying instead of shutting down mid-air.
+
+#### 3. Summary
+Exception handling makes your code **robust**. By using `try` and `except` blocks, you anticipate potential failures and define a ""Plan B."" This prevents unexpected crashes, improves user experience, and ensures that your engineering systems remain stable even when things go wrong.",
